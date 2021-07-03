@@ -7,17 +7,15 @@ pipeline {
 		}
 	}
 		
-          stage ('OWASP Dependency-Check Vulnerabilities') {
-            steps {
-                dependencyCheck additionalArguments: ''' 
-                    -o "./" 
-                    -s "./"
-                    -f "ALL" 
-                    --prettyPrint''', odcInstallation: 'OWASP-DC'
-
-                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-            }
-        }     
+        stage ('OWASP Dependency-Check Vulnerabilities') {  
+        steps {  
+        withMaven(maven : 'mvn-3.6.3') {  
+        sh 'mvn dependency-check:check'  
+     }  
+   
+     dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'  
+    }  
+   }  
       		
 	stage('Build') {
 		steps {
