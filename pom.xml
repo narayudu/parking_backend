@@ -75,7 +75,12 @@
 			<version>7.41.2</version>
 		</dependency>
 	</dependencies>
-	
+	<scm>
+        <connection>https://github.com/narayudu/parking_backend.git</connection>
+        <url>https://github.com/narayudu/parking_backend.git</url>
+        <developerConnection>scm:git:https://github.com/narayudu/parking_backend.git</developerConnection>
+      <tag>HEAD</tag>
+       </scm>
 	<distributionManagement>
           <snapshotRepository>
           <id>nexus</id>
