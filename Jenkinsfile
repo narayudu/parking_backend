@@ -21,7 +21,7 @@ pipeline {
               }
             }
           }
-    stages {
+    
         stage ('OWASP Dependency-Check Vulnerabilities') {
             steps {
                 dependencyCheck additionalArguments: ''' 
