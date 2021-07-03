@@ -33,7 +33,7 @@ pipeline {
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
         }     
-    }	
+   	
 
 		
 	stage ('Deploy') {
