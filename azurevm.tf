@@ -112,4 +112,4 @@ resource "azurerm_network_interface_security_group_association" "ubuntu" {
     network_interface_id      = azurerm_network_interface.ubuntu.id
     network_security_group_id = azurerm_network_security_group.ubuntu.id
 }
-© 2021 GitHub, Inc.
+
