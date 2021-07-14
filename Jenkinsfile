@@ -6,17 +6,7 @@ pipeline {
             git 'https://github.com/narayudu/parking_backend.git'
 		}
 	}
-	  stage ('OWASP Dependency-Check Vulnerabilities') {
-            steps {
-                dependencyCheck additionalArguments: ''' 
-                    -o "./" 
-                    -s "./"
-                    -f "ALL" 
-                    --prettyPrint''', odcInstallation: 'OWASP-DC'
-
-                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-            }
-        }     
+	 
       		
 	stage('Build') {
 		steps {
@@ -33,6 +23,12 @@ pipeline {
               }
             }
           }
+	
+	stage ('OWASP Dependency-Check Vulnerabilities') {
+            steps {
+            sh '/opt/maven/bin/mvn dependency-check:check'
+	    dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+      }}
    
    			
 	stage ('Deploy') {
