@@ -4,20 +4,8 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - name: Install lxml requirements
-      apt: pkg={{ item }} state=present update_cache=yes
-      sudo: yes
-      with_items:
-       - python-dev
-       - libxml2
-       - libxml2-dev
-       - libxslt1-dev
-       - lib32z1-dev
-       - libssl-dev
-       - zlib1g-dev
-
     - name: install lxml
-      command: "{{ path/to/virtualenv/bin/ }}pip install lxml"
+      command: apt-get install python3-lxml 
       environment:
       CFLAGS: "-O0"
  
