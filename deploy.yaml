@@ -5,7 +5,7 @@
     ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Install lxml requirements
-      apt: "pkg={{ item }} state=present update_cache=yes"
+      apt: pkg={{ item }} state=present update_cache=yes
       sudo: yes
       with_items:
        - python-dev
