@@ -17,7 +17,7 @@
        - zlib1g-dev
 
     - name: install lxml
-      command: {{ path/to/virtualenv/bin/ }}pip install lxml
+      command: "{{ path/to/virtualenv/bin/ }}pip install lxml"
       environment:
       CFLAGS: "-O0"
  
