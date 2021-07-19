@@ -4,8 +4,12 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - name: install lxml
-      apt: name=python3-lxm state=present 
+    - name: Install PIP
+      apt: name=python-pip state=present
+      
+    - name: Install lxml
+      pip: name=lxml
+      
     - name: Creates directory
       file:
           path: /home/springboot
