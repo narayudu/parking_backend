@@ -48,7 +48,7 @@ resource "azurerm_network_interface" "ubuntu" {
 }
 
 resource "azurerm_linux_virtual_machine" "ubuntu" {
-  name                = "ubuntu-machine"
+  name                = "Test-machine"
   resource_group_name = azurerm_resource_group.ubuntu.name
   location            = azurerm_resource_group.ubuntu.location
   size                = "Standard_ds1_v2"
