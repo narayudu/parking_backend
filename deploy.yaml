@@ -6,9 +6,6 @@
   tasks:
     - name: install lxml
       apt: name=python3-lxm state=present 
-      environment:
-      CFLAGS: "-O0"
- 
     - name: Creates directory
       file:
           path: /home/springboot
