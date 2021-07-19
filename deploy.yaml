@@ -3,12 +3,6 @@
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    
-    - name: Install PIP3
-      apt: name=python3-pip state=present
-      
-    - name: Install lxml
-      pip: name=lxml
       
     - name: Creates directory
       file:
