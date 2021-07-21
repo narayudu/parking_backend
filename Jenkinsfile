@@ -43,7 +43,7 @@ pipeline {
 	}
 		
       	
-      stage('TF Plan') {
+ /*     stage('TF Plan') {
              steps {
              sh 'terraform init'
            sh 'terraform plan -out myplan'
@@ -55,7 +55,7 @@ pipeline {
       steps {
           sh 'terraform apply -input=false myplan'
         }
-      }		
+      }	 */	
 }
 	post {
         always {
