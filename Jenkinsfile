@@ -11,7 +11,7 @@ pipeline {
 	stage('Build') {
 		steps {
 			withSonarQubeEnv('sonar') {
-				sh '/opt/maven/bin/mvn -Dmaven.test.failure.ignore clean verify sonar:sonar '
+				sh '/opt/maven/bin/mvn clean verify sonar:sonar -Dmaven.test.skip=true' '
 			}
 		}
 	}
@@ -60,7 +60,6 @@ pipeline {
 }
 	post {
         always {
-	    junit '**/target/surefire-reports/TEST-*.xml'	
             emailext body: "${currentBuild.currentResult}: Project Name : ${env.JOB_NAME} Build ID : ${env.BUILD_NUMBER}\n\n Approval Link :  ${env.BUILD_URL}", recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
     }
