@@ -18,6 +18,7 @@ pipeline {
 		
        stage('Test & Jacoco Static Analysis') {
 	       steps{
+            sh '/opt/maven/bin/mvn clean test'		       
 	    junit '**/target/surefire-reports/TEST-*.xml'   
 	       }
         }
