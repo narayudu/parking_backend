@@ -17,8 +17,9 @@ pipeline {
 	}
 		
        stage('Test & Jacoco Static Analysis') {
+	       steps{
 	    junit '**/target/surefire-reports/TEST-*.xml'   
-            
+	       }
         }
       		
 		
