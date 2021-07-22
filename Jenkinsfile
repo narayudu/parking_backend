@@ -6,29 +6,15 @@ pipeline {
             git 'https://github.com/narayudu/parking_backend.git'
 		}
 	}
-	 
-      	stage('Build') {
-		steps {
-			sh '/opt/maven/bin/mvn -Dmaven.test.failure.ignore clean verify'
-			
-		}
-	}   
-		
-	stage('Unit Test') {
-		steps {
-			junit 'target/surefire-reports/Text-*.xml'
-			
-		}
-	}   		
-	stage('Buil') {
+	    		
+	stage('Build') {
 		steps {
 			withSonarQubeEnv('sonar') {
 				sh '/opt/maven/bin/mvn clean verify sonar:sonar -Dmaven.test.skip=true  ' 
 			}
 		}
 	}
-				
-		
+						
 	stage("Quality Gate") {
             steps {
               timeout(time: 2, unit: 'MINUTES') {
