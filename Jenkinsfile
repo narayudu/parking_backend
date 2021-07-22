@@ -9,7 +9,7 @@ pipeline {
 	 
       	stage('Build') {
 		steps {
-			sh '/opt/maven/bin/mvn clean verify'
+			sh '/opt/maven/bin/mvn -Dmaven.test.failure.ignore clean verify'
 			
 		}
 	}   	
