@@ -18,7 +18,7 @@ pipeline {
 		
        stage('Test & Jacoco Static Analysis') {
 	       steps{
-            sh '/opt/maven/bin/mvn clean test'		       
+            sh '/opt/maven/bin/mvn -Dmaven.test.failure.ignore clean test'		       
 	    junit '**/target/surefire-reports/TEST-*.xml'   
 	       }
         }
