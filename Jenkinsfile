@@ -16,7 +16,7 @@ pipeline {
 	stage('Buil') {
 		steps {
 			withSonarQubeEnv('sonar') {
-				sh '/opt/maven/bin/mvn  sonar:sonar ' 
+				sh '/opt/maven/bin/mvn  sonar:sonar -Dmaven.test.skip=true  ' 
 			}
 		}
 	}
