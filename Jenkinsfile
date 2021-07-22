@@ -16,6 +16,12 @@ pipeline {
 		}
 	}
 		
+       stage('Test & Jacoco Static Analysis') {
+	    junit '**/target/surefire-reports/TEST-*.xml'   
+            
+        }
+      		
+		
 	stage("Quality Gate") {
             steps {
               timeout(time: 2, unit: 'MINUTES') {
