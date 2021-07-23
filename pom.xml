@@ -74,12 +74,6 @@
 			<artifactId>twilio</artifactId>
 			<version>7.41.2</version>
 		</dependency>		
-		 <dependency>
-                   <groupId>junit</groupId>
-                   <artifactId>junit</artifactId>
-                  <version>4.12</version>
-               <scope>test</scope>
-            </dependency>
 	</dependencies>
 	<scm>
         <connection>https://github.com/narayudu/parking_backend.git</connection>
