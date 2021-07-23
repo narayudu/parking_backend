@@ -6,6 +6,26 @@ pipeline {
             git 'https://github.com/narayudu/parking_backend.git'
 		}
 	}
+	
+     stage('Build Approval Message'){
+           steps{
+           slackSend baseUrl: 'https://hooks.slack.com/services/', 
+           channel: 'cicd', 
+           color: 'good', 
+           message: 'Waiting for Build Approval', 
+           tokenCredentialId: 'slack_notify', 
+           username: 'narayudu kathula'
+        }
+   }
+      
+	stage('Build Approval'){
+           input {
+              message "Should we continue?"
+               }
+              steps {
+              echo "Continuing with deployment"
+      }
+    }
 	    		
 	stage('Build') {
 		steps {
