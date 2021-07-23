@@ -14,7 +14,7 @@ pipeline {
            color: 'good', 
            message: 'Waiting for Build Approval', 
            tokenCredentialId: 'slack_notify', 
-           username: 'narayudu kathula'
+           username: 'narayudu21'
         }
    }
       
