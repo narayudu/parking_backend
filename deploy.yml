@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Creates directory
+      file:
+          path: /home/springboot
+          state: directory
+          owner: adminuser
+          group: adminuser
+          mode: 777
+    - maven_artifact:
+          group_id: com.hcl
+          artifact_id: parking
+          repository_url: 'http://20.55.53.64:8081/repository/maven-snapshots/'
+          username: admin
+          password: admin123
+          dest: /home/springboot/
+          keep_name: yes
