@@ -23,21 +23,20 @@ pipeline {
             }
           }
 	
-	
-		
+			
 	stage ('OWASP Dependency-Check Vulnerabilities') {
             steps {
             sh '/opt/maven/bin/mvn dependency-check:check'
 	    dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-      }}
-   
-   			
+            }
+	}
+    			
 	stage ('Deploy') {
 		steps {
 			sh '/opt/maven/bin/mvn clean deploy -Dmaven.test.skip=true'
 		}
 	}
-		
+	}	
 	post {
         always {
 	 	
